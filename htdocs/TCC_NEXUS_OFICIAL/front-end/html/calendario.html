@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário Completo | Nexus</title>
+    <link rel="icon" href="../images/logo_botinho_pagina.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/menu.css"> 
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/kanban.css"> 
+    <link rel="stylesheet" href="../../css/calendario.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-layout"> 
+        <div class="main-content">
+            <div class="page-content-scrollable"> 
+                
+                <h2 class="calendar-main-title">
+                    <i class="fas fa-calendar-days"></i> Calendário Acadêmico Mensal
+                </h2>
+                
+                <div class="calendar-page-content">
+
+                    <div class="calendar-month-view">
+                        
+                        <div class="month-controls">
+                            <button class="btn btn-secondary"><i class="fas fa-chevron-left"></i></button>
+                            <span class="current-month">Outubro, 2025</span>
+                            <button class="btn btn-secondary"><i class="fas fa-chevron-right"></i></button>
+
+                            <select class="select-filtro project-filter-calendar">
+                                <option selected>TCC Plataforma Social</option>
+                                <option>Mostrar Todos os Projetos</option>
+                                <option>Grupo de Estudo Cálculo I</option>
+                            </select>
+
+                            <button class="btn btn-primary add-event-btn">
+                                <i class="fas fa-plus"></i> Novo Evento/Lembrete
+                            </button>
+                        </div>
+
+                        <div class="calendar-grid">
+                            <div class="day-name">Dom</div>
+                            <div class="day-name">Seg</div>
+                            <div class="day-name">Ter</div>
+                            <div class="day-name">Qua</div>
+                            <div class="day-name">Qui</div>
+                            <div class="day-name">Sex</div>
+                            <div class="day-name">Sáb</div>
+
+                            <div class="day-cell outside-month">28</div>
+                            <div class="day-cell outside-month">29</div>
+                            <div class="day-cell outside-month">30</div>
+                            <div class="day-cell outside-month">01</div>
+                            <div class="day-cell outside-month">02</div>
+                            <div class="day-cell outside-month">03</div>
+                            <div class="day-cell outside-month">04</div>
+                            
+                            <div class="day-cell">05</div>
+                            <div class="day-cell">06</div>
+                            <div class="day-cell has-event">
+                                <span class="day-number">07</span>
+                                <div class="monthly-event event-focus" title="Bloqueio de Foco: Codificação"><i class="fas fa-book-reader"></i> Foco</div>
+                            </div>
+                            <div class="day-cell current-day has-event">
+                                <span class="day-number">08</span>
+                                <div class="monthly-event event-review" title="Revisão Cap. 3 (Pendente)"><i class="fas fa-user-clock"></i> Revisão</div>
+                            </div>
+                            <div class="day-cell">09</div>
+                            <div class="day-cell has-event">
+                                <span class="day-number">10</span>
+                                <div class="monthly-event event-class" title="Aula de Cálculo I"><i class="fas fa-graduation-cap"></i> Aula</div>
+                            </div>
+                            <div class="day-cell">11</div>
+
+                            <div class="day-cell">12</div>
+                            <div class="day-cell">13</div>
+                            <div class="day-cell">14</div>
+                            <div class="day-cell">15</div>
+                            <div class="day-cell">16</div>
+                            <div class="day-cell">17</div>
+                            <div class="day-cell has-event">
+                                <span class="day-number">18</span>
+                                <div class="monthly-event event-completed" title="Prazo: Capa e Sumário (Concluído)"><i class="fas fa-calendar-check"></i> Prazo</div>
+                            </div>
+
+                            <div class="day-cell">19</div>
+                            <div class="day-cell">20</div>
+                            <div class="day-cell">21</div>
+                            <div class="day-cell">22</div>
+                            <div class="day-cell">23</div>
+                            <div class="day-cell has-event">
+                                <span class="day-number">24</span>
+                                <div class="monthly-event event-overdue" title="Definir escopo do Cap. 4 (Atrasado)"><i class="fas fa-calendar-times"></i> URGENTE</div>
+                            </div>
+                            <div class="day-cell">25</div>
+                            
+                            <div class="day-cell">26</div>
+                            <div class="day-cell">27</div>
+                            <div class="day-cell">28</div>
+                            <div class="day-cell">29</div>
+                            <div class="day-cell">30</div>
+                            <div class="day-cell">31</div>
+                            
+                            <div class="day-cell outside-month">01</div>
+                        </div>
+
+                    </div>
+                    
+                    <aside class="event-sidebar">
+                        <h3 class="sidebar-title">
+                            <i class="fas fa-list-check"></i> Eventos Marcados
+                        </h3>
+                        
+                        <div class="event-list-item event-focus">
+                            <div class="event-details">
+                                <p class="event-list-title">Bloqueio de Foco: Codificação</p>
+                                <span class="event-date-time"><i class="fas fa-calendar-day"></i> Terça, 07/Out</span>
+                            </div>
+                            <i class="fas fa-link event-sync-icon" title="Sincronizado com Kanban"></i>
+                        </div>
+                        
+                        <div class="event-list-item event-review">
+                            <div class="event-details">
+                                <p class="event-list-title">Revisão Cap. 3 com Prof. Silva</p>
+                                <span class="event-date-time"><i class="fas fa-clock"></i> Qua, 08/Out às 14:00</span>
+                            </div>
+                            <i class="fas fa-link event-sync-icon" title="Sincronizado com Kanban"></i>
+                        </div>
+                        
+                        <div class="event-list-item event-overdue">
+                            <div class="event-details">
+                                <p class="event-list-title">Prazo URGENTE: Escopo Cap. 4</p>
+                                <span class="event-date-time"><i class="fas fa-calendar-times"></i> Sex, 24/Out - ATRASADO</span>
+                            </div>
+                            <i class="fas fa-link event-sync-icon" title="Sincronizado com Kanban"></i>
+                        </div>
+                        
+                        <div class="event-list-item event-class">
+                            <div class="event-details">
+                                <p class="event-list-title">Aula: Cálculo I (Revisão)</p>
+                                <span class="event-date-time"><i class="fas fa-calendar-day"></i> Sexta, 10/Out - 10:00h</span>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-footer-legend">
+                            **Status:** <span class="legend-review">Revisão</span> | 
+                            <span class="legend-focus">Foco/Execução</span>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/load-components.js"></script>
+    <script src="../../js/calendario-logic.js"></script>
+</body>
+</html>

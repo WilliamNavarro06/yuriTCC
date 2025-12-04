@@ -1,0 +1,472 @@
+/* ================================================================================
+   1. Estilos Base, Layout e Scroll Global
+   ================================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex; 
+    height: 100vh;
+    width: 100vw;
+    background-color: #121212; /* Fundo Escuro */
+    color: #ffffff;
+    overflow: hidden; 
+}
+/* ========================================= */
+/* VARIÁVEIS DE COR E TIPOGRAFIA (Baseado em menu.css) */
+/* ========================================= */
+:root {
+    --color-primary: #7b4ac4; /* Cor principal (roxo/lilás) */
+    --color-primary-light: #bb86fc; /* Cor de destaque (do hover do menu) */
+    --background-main: #292929;
+    --background-card: #3a3a3a; /* Fundo do card */
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --border-color: rgba(255, 255, 255, 0.1); /* Borda/Divisória sutil */
+    --font-family: 'Montserrat', sans-serif;
+    
+    /* Cores para Tipos de Projeto Acadêmico */
+    --color-tcc: #ff9900; /* Laranja/Amarelo */
+    --color-pesquisa: #00bcd4; /* Ciano/Água */
+    --color-disciplina: #8bc34a; /* Verde Claro */
+}
+
+/* ========================================= */
+/* LAYOUT E ESTRUTURA GERAL                  */
+/* ========================================= */
+
+.page-content-scrollable {
+    padding: 20px 40px; 
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto; 
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+.page-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 10px;
+}
+
+/* ========================================= */
+/* BARRA DE AÇÕES (BUSCA E BOTÕES)           */
+/* ========================================= */
+
+.projetos-actions-bar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-search {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: #202020; 
+    color: var(--text-primary);
+    font-size: 1em;
+    transition: border-color 0.2s;
+}
+
+.input-search:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+/* Botão Primário */
+.btn-primary {
+    background-color: var(--color-primary); 
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap; 
+}
+
+.btn-primary:hover {
+    background-color: #5c399b; 
+}
+
+/* Botão Secundário */
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-primary-light); 
+    color: var(--color-primary-light);
+    padding: 8px 15px; 
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(187, 134, 252, 0.15);
+    color: white;
+}
+
+/* Filtros (Selects) */
+.projetos-filtros-detalhes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.select-filtro {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-card);
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    /* Ícone de seta */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23aaaaaa' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 25px; 
+}
+
+/* ========================================= */
+/* LAYOUT FLEX (DUAS COLUNAS: PROJETOS E FEED) */
+/* ========================================= */
+
+.projeto-content-flex {
+    display: flex;
+    gap: 30px; 
+    align-items: flex-start; /* Alinha o topo das duas seções */
+}
+
+.lista-projetos {
+    flex-grow: 2; /* Ocupa mais espaço */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 60%; 
+}
+
+.projeto-feed-section {
+    flex-grow: 1; 
+    min-width: 300px;
+    background-color: var(--background-card);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    position: sticky; /* Mantém o feed visível ao rolar a lista de projetos */
+    top: 80px; /* Distância do topo (abaixo do header fixo) */
+}
+
+.section-subtitle {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--color-primary-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 10px;
+}
+
+/* ========================================= */
+/* CARDS DE PROJETOS E GRUPOS                */
+/* ========================================= */
+
+.card-projeto {
+    background-color: var(--background-card); 
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid transparent; 
+    transition: border-color 0.2s;
+    position: relative;
+}
+
+.card-projeto:hover {
+    border-color: var(--color-primary-light); 
+    background-color: #3f3f3f; 
+}
+
+.projeto-link-title {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 5px;
+    display: block;
+    transition: color 0.2s;
+}
+
+.projeto-descricao {
+    color: var(--text-secondary); 
+    margin: 10px 0 15px 0;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+/* --- Metadados --- */
+.projeto-metadata span {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.projeto-metadata i {
+    margin-right: 6px;
+    font-size: 0.9em;
+}
+
+.projeto-metadata .orientador {
+    color: var(--text-primary); 
+    font-weight: 500;
+}
+
+/* --- Status Tags por TIPO --- */
+.status-tag {
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.tipo-tcc {
+    background-color: rgba(255, 153, 0, 0.2); 
+    color: var(--color-tcc); 
+}
+
+.tipo-pesquisa {
+    background-color: rgba(0, 188, 212, 0.2); 
+    color: var(--color-pesquisa); 
+}
+
+.tipo-disciplina {
+    background-color: rgba(139, 195, 74, 0.2); 
+    color: var(--color-disciplina); 
+}
+
+/* --- Ações do Card (Gerenciar/Entrar) --- */
+.projeto-acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.btn-call-to-action {
+    background-color: var(--color-primary); 
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.btn-call-to-action:hover {
+    background-color: var(--color-primary-light);
+}
+
+.acao-gerenciar {
+    background-color: #4a69ff; /* Azul forte para gerenciamento/config */
+}
+.acao-gerenciar:hover {
+    background-color: #2e4dd6;
+}
+
+.acao-entrar {
+    background-color: var(--color-disciplina); /* Verde para entrada em grupo */
+}
+.acao-entrar:hover {
+    background-color: #6a9c33;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.1em;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
+}
+.btn-icon:hover {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================= */
+/* ESTILO DO FEED DE ATIVIDADE               */
+/* ========================================= */
+
+.feed-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.05);
+}
+
+.feed-item:last-of-type { /* Use last-of-type para pegar o último item real do feed */
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.feed-icon {
+    color: var(--color-primary-light);
+    font-size: 1.1em;
+    padding-top: 2px;
+}
+
+.feed-item p {
+    flex-grow: 1;
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: var(--text-primary);
+}
+
+.feed-time {
+    font-size: 0.75em;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    padding-top: 2px;
+}
+
+/* --- Chamada para Colaboração --- */
+
+.chamada-colaboracao {
+    background-color: #202020; 
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+    border: 1px solid var(--color-primary);
+}
+
+.chamada-colaboracao h4 {
+    color: var(--color-primary-light);
+    margin-top: 0;
+    font-size: 1.1em;
+}
+
+.chamada-colaboracao p {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.btn-chamada-colab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-chamada-colab:hover {
+    background-color: var(--color-primary-light);
+}
+
+/* ========================================= */
+/* RESPONSIVIDADE                            */
+/* ========================================= */
+
+@media (max-width: 992px) {
+    /* Em telas de tablet, as colunas se empilham */
+    .projeto-content-flex {
+        flex-direction: column; 
+    }
+    .lista-projetos, .projeto-feed-section {
+        min-width: 100%;
+        flex-grow: 1;
+    }
+    .projeto-feed-section {
+        position: static; /* Remove o sticky em telas menores */
+    }
+    
+    /* Ajusta a barra de ações */
+    .projetos-actions-bar {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .btn-secondary, .btn-primary {
+        flex-grow: 1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-content-scrollable {
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
+    
+    .projetos-actions-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .input-search {
+        width: 100%;
+    }
+
+    .projetos-filtros-detalhes {
+        flex-wrap: wrap;
+    }
+    
+    .select-filtro {
+        flex-grow: 1; 
+        min-width: 45%;
+    }
+
+    .card-projeto {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .projeto-acoes {
+        align-self: flex-start; 
+        margin-top: 15px; 
+    }
+    
+    .projeto-metadata span {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+}

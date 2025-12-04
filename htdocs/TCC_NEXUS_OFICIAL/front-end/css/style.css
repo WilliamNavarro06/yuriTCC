@@ -1,0 +1,366 @@
+/* 1. Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Fonte moderna e legível */
+    /* background-image: linear-gradient(to bottom right, #13e164, #7212c7);    Fundo Dark Mode (GitHub) */
+    color: #c9d1d9;             /* Cor de texto principal */
+    line-height: 1.6;
+    min-height: 100vh;
+    background-color: #171717;
+}
+
+/* 2. Layout Principal */
+.conteudo {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* 3. Barra de Navegação (Navbar) */
+.barra {
+    position: fixed; /* Fixa o elemento na tela */
+    top: 0; /* Alinha ao topo */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Ocupa a largura total */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    background-color: transparent;
+    /* border-bottom: 2px solid #30363d; Cor de borda/divisão */
+    padding: 16px 0;
+    backdrop-filter: blur(8px);
+    
+}
+
+.barra .conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #c9d1d9;
+    text-decoration: none;
+}
+
+.barra nav a {
+    color: #c9d1d9;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+.barra nav a:hover {
+    opacity: 1;
+    color: #58a6ff; /* Cor de destaque (Azul Tecnológico) */
+}
+
+.barra nav a:not(.botao)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Começa no meio */
+    transform: translateX(-50%);
+    width: 0; /* Largura inicial zero */
+    height: 2px;
+    /* background-color: #58a6ff; */
+    transition: width 0.3s ease-out; /* Anima a largura */
+}
+
+.barra nav a:not(.botao):hover::after {
+    width: 100%; /* Largura total no hover */
+}
+
+.botao {
+    border: 1px solid #58a6ff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-left: 30px !important; 
+    background-color: rgba(88, 166, 255, 0.1);
+    color: #58a6ff !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(88, 166, 255, 0.5);
+}
+
+.botao:hover {
+    background-color: #58a6ff; /* Fundo azul completo */
+    color: #0d1117 !important; /* Texto escuro no hover */
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.8); /* Brilho mais intenso */
+}
+
+/* 4. Seção Principal (Hero Section) - AJUSTADA PARA EMPILHAR O CONTEÚDO */
+.secao1 {
+    padding: 80px 0;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+}
+
+.secao1 .conteudo {
+    display: block; 
+    text-align: center; /* Centraliza o texto e CTA */
+}
+
+.conteudo-secao {
+    max-width: 800px; /* Limita a largura do texto principal */
+    margin: 0 auto 50px auto; /* Centraliza e adiciona espaço abaixo */
+}
+
+.conteudo-secao h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: #13e164; /* Destaque no título (Azul Tecnológico) */
+}
+
+.conteudo-secao p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* 5. Formulário de CTA */
+.login {
+    display: flex;
+    gap: 10px;
+    max-width: 450px;
+    margin: 0 auto; /* Centraliza o grupo de CTA */
+}
+
+.login input[type="email"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background-color: #161b22; /* Fundo do input */
+    color: #c9d1d9;
+    font-size: 1rem;
+}
+
+.botao1 {
+    background-color: #238636; /* Cor do botão principal (Verde do GitHub) */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.botao1:hover {
+    background-color: #2ea043;
+}
+
+/* 6. Visual Tecnológico - ABAIXO DO CONTEÚDO */
+.bloco-decoracao {
+    display: flex;
+    justify-content: center; /* Centraliza o bloco de código */
+    margin-top: 50px; /* Adiciona espaço acima */
+}
+
+.codigo-bloco {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    width: 100%; 
+    max-width: 700px; /* Limite máximo de largura */
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #79c0ff; /* Cor de código */
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+    text-align: left; /* Garante que o texto do código não esteja centralizado */
+}
+
+.codigo-bloco span:nth-child(3) {
+    color: #484f58; /* Cor de comentário */
+    margin-top: 10px;
+}
+
+.logo-image {
+    height: 35px; /* Reduza o tamanho, 80px é muito grande para um menu fixo */
+    filter: drop-shadow(0 0 5px rgba(88, 166, 255, 0.5)); /* Adiciona um brilho sutil na imagem */
+    transition: height 0.3s ease;
+}
+
+/* 7. Responsividade */
+@media (max-width: 768px) {
+    .secao1 .conteudo {
+        /* Já está empilhado, mas ajustamos espaçamento */
+    }
+
+    .conteudo-secao h1 {
+        font-size: 2.5rem;
+    }
+
+    .conteudo-secao p {
+        font-size: 1rem;
+    }
+
+    .login {
+        flex-direction: column;
+        max-width: 100%;
+        margin: 0; /* Remove a centralização para ocupar a largura total */
+    }
+
+    .botao1 {
+        width: 100%;
+    }
+
+    .bloco-decoracao {
+        margin-top: 30px;
+    }
+    
+    .codigo-bloco {
+        max-width: 100%; 
+    }
+    
+    /* Navbar Responsiva */
+    .barra .conteudo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .barra nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .barra nav a {
+        margin: 5px 10px;
+    }
+
+    .botao {
+        margin-left: 10px !important;
+    }
+}
+
+/* Gradiente de Fundo Sutil para o toque tecnológico */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 10%, rgba(88, 166, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 90%, rgba(35, 134, 54, 0.05) 0%, transparent 20%);
+    z-index: -1; 
+}
+
+button {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff80;
+  text-shadow: none;
+  background: transparent;
+  cursor: pointer;
+  box-shadow: transparent;
+  border: 1px solid #ffffff80;
+  transition: 0.5s ease;
+  user-select: none;
+}
+
+#btn:hover,
+:focus {
+  color: #ffffff;
+  background: #7212c7;
+  border: 1px solid #7212c7;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+  box-shadow: 0 0 5px #7212c7, 0 0 20px #7212c7, 0 0 50px #7212c7, 0 0 100px #7212c7;
+}
+
+.logo-image1 {
+    height: 250px; /* Reduza o tamanho, 80px é muito grande para um menu fixo */
+    filter: drop-shadow(0 0 1px rgba(88, 166, 255, 0.5)); /* Adiciona um brilho sutil na imagem */
+    transition: height 0.3s ease;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: 50% 50%;
+}
+
+/* ---- stats.js ---- */
+.count-particles {
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13E8E9;
+  font-size: 0.8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 0 0 3px 3px;
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.js-count-particles {
+  font-size: 1.1em;
+}
+
+#stats {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.txt-page{
+    display: flex;
+    font-size: 15px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.txt-page.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.texto-page{
+    display: flex;
+    margin-left: 15px;
+}

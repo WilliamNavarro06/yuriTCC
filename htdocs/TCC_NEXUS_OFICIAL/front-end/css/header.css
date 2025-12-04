@@ -1,0 +1,52 @@
+/* ================================================================================
+   Estilos do Header Fixo e Barra de Busca
+   ================================================================================ */
+
+/* O Header que é injetado */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    left: 250px; /* ALINHA O HEADER À DIREITA DA SIDEBAR */
+    width: calc(100% - 250px);
+    height: 60px;
+    padding: 0 40px;
+    z-index: 100;
+    background-color: #292929;
+    border-bottom: 1px solid #202020;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.search-container { 
+    display: flex; 
+    align-items: center; 
+    background-color: #202020; 
+    padding: 8px 15px; 
+    border-radius: 20px; 
+    width: 300px; 
+    transition: 0.3s; 
+}
+.search-container i { 
+    margin-right: 10px; 
+    color: #aaaaaa; 
+}
+.search-container input { 
+    border: none; 
+    background: transparent; 
+    color: #ffffff; 
+    outline: none; 
+    width: 100%; 
+}
+.header-profile { 
+    display: flex; 
+    align-items: center; 
+}
+.header-profile-pic { 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    background-color: #bb86fc; 
+    cursor: pointer; 
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações | Nexus</title>
+    <link rel="icon" href="../images/logo_botinho_pagina.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="../../css/menu.css"> 
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/feed.css"> 
+    <link rel="stylesheet" href="../css/configuracoes.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-layout"> 
+        
+        <div class="sidebar-placeholder"></div>
+
+        <div class="main-content">
+            
+            <div class="header-placeholder"></div>
+            
+            <div class="explorar">Configurações</div>
+
+            <div class="feed-container">
+
+                <div class="postagem">
+                    <div class="cabecalho-post">
+                        <div class="perfil-status-container">
+                            <div class="imagem-perfil"></div>
+                            <span class="status-indicator online" title="Online Agora"></span>
+                        </div>
+                        <div class="informacao-post">
+                            <div class="nome-usuario verificado">Seu Perfil</div>
+                            <div class="arroba">@usuario</div>
+                        </div>
+                    </div>
+
+                    <div class="conteudo-post">
+                        <p>Gerencie suas informações, privacidade e preferências da sua conta Nexus.</p>
+
+                        <form class="config-form">
+                            <label>Nome de Usuário</label>
+                            <input type="text" value="Leonardo Miranda">
+
+                            <label>Arroba</label>
+                            <input type="text" value="@leonardo.miranda">
+
+                            <label>Bio</label>
+                            <textarea placeholder="Fale um pouco sobre você...">Apaixonado por tecnologia e criatividade 🚀</textarea>
+
+                            <label>Foto de Perfil</label>
+                            <div class="upload-foto">
+                                <i class="fas fa-camera"></i>
+                                <span>Alterar foto</span>
+                            </div>
+
+                            <label>Senha Atual</label>
+                            <input type="password" placeholder="Digite sua senha atual">
+
+                            <label>Nova Senha</label>
+                            <input type="password" placeholder="Nova senha">
+
+                            <label>Confirme a Nova Senha</label>
+                            <input type="password" placeholder="Repita a nova senha">
+
+                            <button type="submit" class="salvar-btn"><i class="fas fa-save"></i> Salvar Alterações</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="postagem">
+                    <div class="conteudo-post">
+                        <h3 class="nome-bloco">Preferências</h3>
+                        <div class="preferencias">
+                            <label><input type="checkbox"> Modo público (permitir que outros vejam seu perfil)</label>
+                            <label><input type="checkbox" checked> Tema escuro (ativo)</label>
+                            <label><input type="checkbox" checked> Notificações por e-mail</label>
+                            <label>Alterar Token</label>
+                            <input type="password" placeholder="Digite seu novo Token">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="postagem">
+                    <div class="conteudo-post">
+                        <h3 class="nome-bloco">Notificações</h3>
+                        <div class="preferencias">
+                            <label><input type="checkbox" checked> Curtidas</label>
+                            <label><input type="checkbox"> Comentários</label>
+                            <label><input type="checkbox" checked> Menções</label>
+                            <label><input type="checkbox"> Desativar todads as notificações</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="postagem">
+                    <div class="conteudo-post">
+                        <h3 class="nome-bloco">Segurança</h3>
+                        <div class="preferencias">
+                            <label><input type="checkbox" checked> Gerenciar dispositivos conectados</label>
+                            <label><input type="checkbox"> Ver histórico de login</label>
+                            <label><input type="checkbox" checked> Encerrar todas as sessões ativas</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="postagem">
+                    <div class="conteudo-post">
+                        <h3 class="nome-bloco">Encerrar Sessão</h3>
+                        <p>Se desejar sair da sua conta, clique abaixo.</p>
+                        <button class="sair-btn"><i class="fas fa-sign-out-alt"></i> Sair da Conta</button>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src="../../js/load-components.js"></script>
+</body>
+</html>

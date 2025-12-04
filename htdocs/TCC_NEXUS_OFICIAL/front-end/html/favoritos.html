@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos | Nexus</title>
+    <link rel="icon" href="../images/logo_botinho_pagina.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="../../css/menu.css"> 
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/favoritos.css"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-layout"> 
+        
+        <div class="sidebar-placeholder"></div>
+
+        <div class="main-content">
+            
+            <div class="header-placeholder"></div>
+            
+            <div class="explorar">Seus Favoritos</div>
+
+            <div class="feed-filtros">
+                <a href="feed.html" class="filtro-btn"><i class="fas fa-fire"></i> Destaques</a>
+                <a href="favoritos.html" class="filtro-btn active-filtro"><i class="fas fa-star"></i> Favoritos</a>
+            </div>
+
+            <div class="favoritos-container">
+                
+                <div class="secao-favoritos">
+                    <h2 class="titulo-secao"><i class="fas fa-comment-dots"></i> Posts Favoritos</h2>
+                    
+                    <div class="feed-container">
+                        
+                        <div class="postagem">
+                            <div class="cabecalho-post">
+                                <div class="perfil-status-container">
+                                    <div class="imagem-perfil"></div> 
+                                    <span class="status-indicator online" title="Online Agora"></span> 
+                                </div>
+                                <div class="informacao-post">
+                                    <div class="nome-usuario verificado">Aisha Silva</div>
+                                    <div class="arroba">@aishadev</div>
+                                </div>
+                            </div>
+                            <div class="conteudo-post">
+                                <p>O desenvolvimento de software tem evoluído a uma velocidade incrível. Aprender novas tecnologias é um desafio constante, mas a recompensa de ver um projeto complexo ganhar vida é indescritível. Qual framework ou linguagem está dominando seu tempo ultimamente?</p>
+                            </div>
+                            
+                            <div class="interacao-post">
+                                <div class="icones-interacao">
+                                    <span class="interacao-item favoritado"><i class="fas fa-star"></i> Favoritado</span>
+                                    <span class="interacao-item"><i class="fas fa-share-alt"></i> Compartilhar</span>
+                                    <span class="interacao-item"><i class="fas fa-comment-dots"></i> 3 Comentários</span>
+                                </div>
+                                <div class="data-post">Postado há 5min</div>
+                            </div>
+                            
+                            <div class="area-comentario">
+                                <div class="foto-usuario-comentario"></div>
+                                <div class="barra-comentario">
+                                    <input type="text" placeholder="Adicione um comentário...">
+                                    <div class="icones-comentario">
+                                        <i class="far fa-smile"></i>
+                                        <i class="fas fa-paperclip"></i>
+                                        <i class="fas fa-paper-plane"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secao-favoritos">
+                    <h2 class="titulo-secao"><i class="fas fa-users"></i> Canais e Chats Favoritos</h2>
+                    <div class="lista-itens">
+                        <div class="item-favorito canal">
+                            <i class="fas fa-hashtag"></i>
+                            <div class="info-item">
+                                <div class="nome-item">#sprint-dev-main</div>
+                                <div class="descricao-item">Discussões sobre o core do sistema.</div>
+                            </div>
+                            <span class="notificacao-badge">2</span>
+                        </div>
+                        <div class="item-favorito canal">
+                            <i class="fas fa-lock"></i>
+                            <div class="info-item">
+                                <div class="nome-item">@Lideres_FrontEnd</div>
+                                <div class="descricao-item">Chat Privado da Liderança.</div>
+                            </div>
+                        </div>
+                        <div class="item-favorito canal">
+                            <i class="fas fa-bell"></i>
+                            <div class="info-item">
+                                <div class="nome-item">#alerts-prod</div>
+                                <div class="descricao-item">Monitoramento e alertas de produção.</div>
+                            </div>
+                            <span class="notificacao-badge alerta">!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secao-favoritos">
+                    <h2 class="titulo-secao"><i class="fas fa-code-branch"></i> Repositórios Favoritos</h2>
+                    <div class="lista-itens">
+                        <div class="item-favorito repositorio">
+                            <i class="fab fa-github"></i>
+                            <div class="info-item">
+                                <div class="nome-item">nexus-api-gateway</div>
+                                <div class="descricao-item">Último commit: 2h atrás.</div>
+                            </div>
+                        </div>
+                        <div class="item-favorito repositorio">
+                            <i class="fab fa-github"></i>
+                            <div class="info-item">
+                                <div class="nome-item">ui-kit-design</div>
+                                <div class="descricao-item">Documentação e componentes de UI.</div>
+                            </div>
+                            <span class="icone-extra"><i class="fas fa-book"></i></span>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src="../../js/load-components.js"></script>
+</body>
+</html>

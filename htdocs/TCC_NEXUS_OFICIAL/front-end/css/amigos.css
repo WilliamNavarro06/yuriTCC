@@ -1,0 +1,735 @@
+/* ================================================================================
+   1. Estilos Base e Reset
+   ================================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex; 
+    height: 100vh;
+    width: 100vw;
+    background-color: #121212;
+    color: #ffffff;
+    overflow: hidden; 
+}
+
+/* ================================================================================
+   2. Layout Principal (Dashboard, Sidebar, Header)
+   ================================================================================ */
+
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar (Menu Lateral) */
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background: #292929;
+    backdrop-filter: blur(8px);
+    border-right: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    overflow-y: auto;
+    padding-top: 0; 
+    flex-shrink: 0;
+}
+
+.logo{ margin-top: 20px; margin-bottom: 30px; display: block; max-width: 100px; }
+.menu-list { list-style: none; padding: 0; }
+.menu-list li a { padding: 12px 10px; margin-bottom: 8px; border-radius: 8px; color: #aaaaaa; display: flex; align-items: center; text-decoration: none; transition: 0.3s; }
+.menu-list li a:hover { background-color: rgba(187,134,252,0.1); color: #ffffff; }
+.menu-list li .active-link-item { background-color: #7b4ac4; color: #ffffff !important; font-weight: 600; box-shadow: 0 4px 8px rgba(123,74,196,0.4); }
+.menu-list i { margin-right: 15px; }
+
+/* Main Content (Área de Conteúdo Variável) */
+.main-content {
+    flex-grow: 1;
+    padding: 20px 40px;
+    overflow-y: auto;
+    max-width: calc(100% - 250px);
+    padding-top: 80px; 
+    height: 100vh;
+}
+
+/* Header (Cabeçalho Fixo) */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 250px; /* Alinha à direita da sidebar */
+    width: calc(100% - 250px);
+    height: 60px;
+    padding: 0 40px;
+    z-index: 100;
+    background-color: #292929;
+    border-bottom: 1px solid #202020;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.search-container { display: flex; align-items: center; background-color: #202020; padding: 8px 15px; border-radius: 20px; width: 300px; transition: 0.3s; }
+.search-container i { margin-right: 10px; color: #aaaaaa; }
+.search-container input { border: none; background: transparent; color: #ffffff; outline: none; width: 100%; }
+.header-logo { visibility: hidden; }
+.header-profile { display: flex; align-items: center; }
+.header-profile-pic { width: 40px; height: 40px; border-radius: 50%; background-color: #bb86fc; cursor: pointer; transition: transform 0.3s ease; }
+
+.feed-header, .explorar {
+    font-size: 1.5em; 
+    font-weight: 700;
+    margin-bottom: 25px;
+    padding-left: 5px;
+    color: #bb86fc;
+}
+
+/* Scrollbar Comum */
+.chat-messages::-webkit-scrollbar,
+.kanban-board-container::-webkit-scrollbar,
+.task-list::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.chat-messages::-webkit-scrollbar-thumb,
+.kanban-board-container::-webkit-scrollbar-thumb,
+.task-list::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #7b4ac4;
+    border-radius: 4px;
+}
+.chat-messages::-webkit-scrollbar-track,
+.kanban-board-container::-webkit-scrollbar-track,
+.task-list::-webkit-scrollbar-track,
+.sidebar::-webkit-scrollbar-track {
+    background: #202020;
+}
+
+/* ================================================================================
+   3. Estilos do Chat (REFINADOS)
+   ================================================================================ */
+/* ... (Seu código CSS do Chat aqui, omitido por brevidade, mas deve estar no seu arquivo) ... */
+
+/* ================================================================================
+   4. Estilos do Calendário
+   ================================================================================ */
+/* ... (Seu código CSS do Calendário aqui, omitido por brevidade, mas deve estar no seu arquivo) ... */
+
+/* ================================================================================
+   5. Estilos do Kanban
+   ================================================================================ */
+/* ... (Seu código CSS do Kanban aqui, omitido por brevidade, mas deve estar no seu arquivo) ... */
+
+/* ================================================================================
+   6. Estilos da Página Amigos
+   ================================================================================ */
+
+.friends-layout {
+    display: flex;
+    gap: 30px;
+    padding-top: 5px;
+}
+
+/* Coluna lateral para pedidos/sugestões */
+.friends-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-box {
+    background-color: #202020;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+    font-size: 1em;
+    font-weight: 700;
+    color: #bb86fc;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+}
+.section-title i {
+    margin-right: 8px;
+}
+
+/* -------------------- Pedidos Pendentes -------------------- */
+
+.friend-request-item, .suggestion-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+.friend-request-item:last-child, .suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.request-user-info, .suggestion-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.profile-pic-small {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #555; /* Cor de placeholder */
+}
+
+.request-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.action-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accept-btn { background-color: #4caf50; } /* Verde */
+.accept-btn:hover { background-color: #388e3c; }
+
+.deny-btn { background-color: #f44336; } /* Vermelho */
+.deny-btn:hover { background-color: #d32f2f; }
+
+.add-btn {
+    background-color: #bb86fc; /* Roxo */
+    color: #121212;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    width: auto;
+    height: auto;
+}
+.add-btn:hover { background-color: #7b4ac4; color: white; }
+
+/* -------------------- Lista Principal de Amigos (Grid) -------------------- */
+
+.friends-list-main {
+    flex-grow: 1;
+}
+
+.friends-list-header {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #333;
+}
+
+.friend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.friend-card {
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s;
+}
+.friend-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.friend-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #bb86fc;
+    margin: 0 auto 10px auto;
+    border: 3px solid #7b4ac4;
+}
+
+/* Status Online/Offline */
+.friend-status {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: 75px;
+    right: calc(50% - 35px); 
+    border: 2px solid #202020;
+}
+.friend-status.online { background-color: #4caf50; }
+.friend-status.offline { background-color: #888; }
+
+.friend-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.friend-role {
+    font-size: 0.85em;
+    color: #aaaaaa;
+    margin-bottom: 15px;
+}
+
+.friend-actions-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+}
+
+.chat-btn {
+    background-color: #bb86fc;
+    color: #121212;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s;
+}
+.chat-btn:hover {
+    background-color: #7b4ac4;
+    color: white;
+}
+
+.options-icon {
+    color: #aaaaaa;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+.options-icon:hover {
+    color: #bb86fc;
+}
+
+/* ================================================================================
+   7. Estilos da Página Minha Rede (Amigos Atualizada)
+   ================================================================================ */
+
+.network-layout {
+    display: flex;
+    gap: 30px;
+    padding-top: 5px;
+    /* Garante que o conteúdo principal ocupe o máximo de espaço possível */
+    min-height: calc(100vh - 150px); 
+}
+
+/* Coluna Lateral (Visão Geral e Pedidos) */
+.network-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-box {
+    background-color: #202020;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+    font-size: 1em;
+    font-weight: 700;
+    color: #bb86fc;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+}
+.section-title i { margin-right: 8px; }
+
+/* -------------------- Estatísticas e Botão Lateral -------------------- */
+
+.connections-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.stat-item {
+    font-size: 0.9em;
+    color: #aaaaaa;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: #333;
+}
+.online-stat { color: #4caf50; font-weight: 600; }
+.project-stat { color: #ff9800; font-weight: 600; }
+
+.find-people-btn {
+    width: 100%;
+    background-color: #7b4ac4;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+.find-people-btn:hover { background-color: #bb86fc; }
+
+/* -------------------- Pedidos de Conexão (Sidebar) -------------------- */
+
+.connection-request-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+.connection-request-item:last-of-type { border-bottom: none; }
+
+.request-actions { display: flex; gap: 5px; }
+
+.accept-btn { background-color: #4caf50; }
+.deny-btn { background-color: #f44336; }
+
+.view-all-requests-btn {
+    margin-top: 10px;
+    background: none;
+    border: none;
+    color: #bb86fc;
+    font-size: 0.85em;
+    cursor: pointer;
+    text-align: left;
+}
+.view-all-requests-btn:hover { text-decoration: underline; }
+
+/* -------------------- Projetos Compartilhados (Sidebar) -------------------- */
+
+.project-list { list-style: none; padding: 0; }
+.project-list li a { 
+    display: block;
+    padding: 8px 5px;
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s;
+    border-radius: 4px;
+}
+.project-list li a:hover {
+    color: #ffffff;
+    background-color: #333;
+}
+.project-list i { margin-right: 10px; color: #ff9800; }
+
+
+/* -------------------- Estilos da Área Principal (Direita) -------------------- */
+
+.network-main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------- Abas de Navegação (Tabs) -------------------- */
+
+.network-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+}
+
+.network-tab-btn {
+    background: none;
+    border: none;
+    color: #aaaaaa;
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    margin-bottom: -2px; /* Ajusta para esconder a linha de baixo */
+}
+
+.network-tab-btn:hover { color: #ffffff; }
+
+.network-tab-btn.active-tab {
+    color: #bb86fc;
+    border-bottom: 2px solid #bb86fc;
+}
+
+/* Conteúdo das Abas */
+.network-tab-content {
+    display: none;
+    padding-top: 10px;
+    flex-grow: 1;
+}
+
+.network-tab-content.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-content-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+.tab-content-title i { margin-right: 8px; color: #bb86fc; }
+
+/* -------------------- Feed de Atividade (Aba 1) -------------------- */
+
+.activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.activity-item {
+    display: flex;
+    gap: 15px;
+    background-color: #202020;
+    padding: 15px;
+    border-radius: 8px;
+    align-items: flex-start;
+    border-left: 3px solid #7b4ac4;
+}
+
+.activity-details {
+    flex-grow: 1;
+}
+
+.activity-user {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.activity-time {
+    display: block;
+    font-size: 0.75em;
+    color: #888;
+    margin-top: 5px;
+}
+.activity-time i { margin-right: 4px; }
+
+.activity-type {
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin: 0 5px;
+}
+.activity-type.commit { background-color: #28a745; color: white; } /* Verde - GitHub */
+.activity-type.pr { background-color: #6f42c1; color: white; }    /* Roxo - GitHub */
+.activity-type.task { background-color: #ff9800; color: #121212; }  /* Laranja - Kanban */
+
+.activity-link { color: #bb86fc; text-decoration: none; font-weight: 500; }
+.activity-description { font-style: italic; font-size: 0.9em; color: #aaaaaa; margin-top: 5px; }
+
+
+/* -------------------- Minhas Conexões (Aba 2) -------------------- */
+
+.filter-connections-input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #292929;
+    color: #ffffff;
+    outline: none;
+}
+
+.connection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.connection-card {
+    background-color: #202020;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-left: 3px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.connection-card.active-status { border-color: #4caf50; } /* Borda verde para online */
+
+.connection-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #bb86fc;
+    border: 2px solid #7b4ac4;
+    margin-bottom: 10px;
+}
+
+.connection-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 18px;
+    left: 60px;
+    border: 2px solid #202020;
+}
+.connection-status.online { background-color: #4caf50; }
+.connection-status.offline { background-color: #888; }
+
+.connection-info {
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.connection-name {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.connection-handle {
+    font-size: 0.85em;
+    color: #aaaaaa;
+}
+
+.connection-role {
+    font-size: 0.95em;
+    color: #bb86fc;
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.connection-techs {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    font-size: 0.7em;
+    padding: 3px 7px;
+    border-radius: 4px;
+    background-color: #444;
+    color: #ddd;
+}
+/* Adicionar tags específicas (Ex: React, Java, etc.) */
+.tech-tag.react { background-color: #00bcd4; color: #121212; }
+.tech-tag.java { background-color: #f44336; color: white; }
+.tech-tag.css { background-color: #2196f3; color: white; }
+/* ... (Você pode adicionar mais tags específicas aqui) ... */
+
+.connection-actions-card {
+    display: flex;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+}
+
+.chat-btn, .profile-btn {
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+.chat-btn { background-color: #bb86fc; color: #121212; }
+.profile-btn { background-color: #333; color: white; }
+.chat-btn:hover, .profile-btn:hover { opacity: 0.8; }
+
+
+/* -------------------- Minhas Equipes (Aba 3) -------------------- */
+
+.team-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.team-card {
+    background-color: #292929;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-top: 5px solid #ff9800; /* Destaque da equipe */
+}
+
+.team-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.team-name {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #ffffff;
+}
+.team-name i { margin-right: 8px; color: #ff9800; }
+
+.team-members-count {
+    font-size: 0.85em;
+    color: #aaaaaa;
+    background-color: #333;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.team-members-avatars {
+    display: flex;
+    margin-bottom: 10px;
+}
+.team-members-avatars .profile-pic-small { 
+    margin-right: -10px; 
+    border: 2px solid #292929;
+}
+
+.team-description {
+    font-size: 0.9em;
+    color: #aaaaaa;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    border-top: 1px solid #333;
+}
+
+.team-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.team-action-btn {
+    background-color: #444;
+    color: #ffffff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.85em;
+    transition: background-color 0.3s;
+}
+.team-action-btn:hover { background-color: #555; }
+.team-action-btn i { margin-right: 5px; color: #bb86fc; }

@@ -1,0 +1,99 @@
+/* ======== RESET ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0e0e0f;
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* ======== CONTAINER PRINCIPAL ======== */
+.perfil-container {
+    width: 420px;
+    padding: 40px;
+    background: #161618;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    animation: fadeIn 0.4s ease;
+    text-align: center;
+}
+
+/* Título do @handle */
+.perfil-container h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #a770ff;
+}
+
+/* Linhas de informações */
+.perfil-container p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    background: #1f1f21;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: left;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.perfil-container p:hover {
+    border-color: #a770ff;
+    transform: translateX(4px);
+}
+
+/* Nome do campo em negrito */
+.perfil-container p strong {
+    color: #ccc;
+}
+
+/* Botão de voltar */
+.perfil-container a {
+    display: inline-block;
+    margin-top: 25px;
+    color: #fff;
+    background: linear-gradient(135deg, #7d3cff, #a770ff);
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.perfil-container a:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* ======== ANIMAÇÃO ======== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 480px) {
+    .perfil-container {
+        width: 90%;
+        padding: 25px;
+    }
+    .perfil-container h1 {
+        font-size: 24px;
+    }
+}

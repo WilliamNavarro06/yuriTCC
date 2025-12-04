@@ -1,0 +1,353 @@
+/* ========================================= */
+/* VARIÁVEIS DE COR E STATUS                 */
+/* ========================================= */
+:root {
+    --color-primary: #7b4ac4; 
+    --color-primary-light: #bb86fc; 
+    --background-main: #292929;
+    --background-card: #3a3a3a; 
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --border-color: rgba(255, 255, 255, 0.1); 
+
+    /* Cores de Status para Professor */
+    --status-review-professor: #7b4ac4; /* Roxo principal para Revisão de TCC/Artigo */
+    --status-stalled: #ff9800;          /* Laranja para Alerta de Projeto Parado */
+    --status-admin: #00bcd4;            /* Ciano para Ações Administrativas */
+    --status-action: #007bff;           /* Azul para Ações Kanban */
+    --status-review: #ffc107;           /* Amarelo para Revisão de Pares/Outros */
+    --status-meeting: #8bc34a;          /* Verde claro para Reuniões/Agenda */
+}
+
+/* ========================================= */
+/* LAYOUT GERAL E TÍTULOS                    */
+/* ========================================= */
+
+.atividades-main-title {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.atividades-subtitle {
+    color: var(--text-secondary);
+    font-size: 1em;
+    margin-bottom: 30px;
+}
+
+.atividades-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.atividades-principal {
+    flex-grow: 3;
+    min-width: 0;
+}
+
+.atividades-secundaria {
+    flex-shrink: 0;
+    width: 350px; 
+    position: sticky;
+    top: 80px; /* Mantém a sidebar visível ao rolar */
+}
+
+/* --- SEÇÕES E BLOCOS --- */
+
+.atividade-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #252525;
+    border-radius: 8px;
+}
+
+.section-title {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.sidebar-block {
+    background-color: #252525;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.block-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+/* ========================================= */
+/* ESTILO DOS CARDS DE ATIVIDADE             */
+/* ========================================= */
+
+.atividade-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-card);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-left: 5px solid var(--status-action); /* Borda padrão */
+    transition: box-shadow 0.2s;
+}
+
+.atividade-card:hover {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.card-icon {
+    font-size: 1.4em;
+    margin-right: 15px;
+    color: var(--status-action);
+}
+
+.card-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.card-meta {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+/* --- Cores de Destaque dos Cards do Professor --- */
+
+/* TCC Submetido (Alta Prioridade) */
+.atividade-card.card-review-pending {
+    border-left-color: var(--status-review-professor); 
+}
+.card-review-pending .card-icon {
+    color: var(--status-review-professor);
+}
+
+/* Revisão de Artigo (Outras Revisões) */
+.atividade-card.card-review-other {
+    border-left-color: var(--status-review); /* Amarelo (Atenção) */
+}
+.card-review-other .card-icon {
+    color: var(--status-review);
+}
+
+/* Projeto Parado */
+.atividade-card.card-project-stalled {
+    border-left-color: var(--status-stalled); /* Laranja */
+}
+.card-project-stalled .card-icon {
+    color: var(--status-stalled);
+}
+
+/* Aluno Aguardando Resposta (Kanban) */
+.atividade-card.card-kanban-action {
+    border-left-color: var(--status-action); /* Azul */
+}
+.card-kanban-action .card-icon {
+    color: var(--status-action);
+}
+
+/* --- Ações e Links --- */
+.card-actions {
+    flex-shrink: 0;
+}
+
+.action-link {
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.link-review { 
+    background-color: var(--status-review-professor); /* Roxo */
+    color: white; 
+}
+.link-review:hover { 
+    background-color: #6333b0; 
+}
+
+.link-view { 
+    background-color: var(--background-card); 
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+.link-view:hover { 
+    background-color: #444444; 
+}
+
+.link-contact {
+    background-color: var(--status-stalled); /* Laranja */
+    color: #333;
+    font-weight: 600;
+}
+.link-contact:hover {
+    background-color: #ffb547;
+}
+
+/* ========================================= */
+/* SIDEBAR: AGENDA E ADMINISTRAÇÃO           */
+/* ========================================= */
+
+/* --- Agenda de Orientação --- */
+.schedule-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.schedule-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.schedule-time {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.schedule-item.item-meeting {
+    /* Destaca reunião IMINENTE */
+    border-left: 4px solid var(--status-meeting); /* Verde claro */
+    padding-left: 5px;
+}
+
+.schedule-item.item-reserved {
+    border-left: 4px solid var(--status-action); /* Azul */
+    padding-left: 5px;
+}
+
+.link-meeting {
+    display: inline-flex;
+    margin-top: 8px;
+    background-color: var(--status-meeting);
+    color: #333;
+    font-weight: 600;
+}
+.link-meeting:hover {
+    background-color: #a8d575;
+}
+
+.link-full-calendar {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 8px;
+    border: 1px solid var(--color-primary-light);
+    border-radius: 6px;
+    color: var(--color-primary-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.link-full-calendar:hover {
+    background-color: rgba(187, 134, 252, 0.15);
+}
+
+/* --- Tarefas Administrativas --- */
+
+.admin-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.admin-task:last-child {
+    border-bottom: none;
+}
+
+.admin-text {
+    font-weight: 500;
+    color: var(--text-primary);
+    flex-grow: 1;
+}
+
+.admin-meta {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.link-admin-action {
+    background-color: var(--status-admin);
+    color: white;
+    font-weight: 500;
+    margin-left: 10px;
+    padding: 5px 10px;
+}
+.link-admin-action:hover {
+    background-color: #0099aa;
+}
+
+/* ========================================= */
+/* RESPONSIVIDADE                            */
+/* ========================================= */
+
+@media (max-width: 1050px) {
+    .atividades-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .atividades-secundaria {
+        width: 100%;
+        position: static;
+        order: -1; /* Coloca a sidebar acima do conteúdo principal no mobile */
+    }
+    
+    .atividade-card {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .card-actions {
+        width: 100%;
+    }
+    
+    .action-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .atividade-section {
+        padding: 15px;
+    }
+    .admin-task {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    .link-admin-action {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+    }
+}

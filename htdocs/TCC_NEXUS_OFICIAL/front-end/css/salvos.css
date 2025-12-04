@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex; 
+    height: 100vh;
+    width: 100vw;
+    background-color: #121212; /* Fundo Escuro */
+    color: #ffffff;
+    overflow: hidden; 
+}
+
+/* ========================================= */
+/* VARIÁVEIS DE COR (Referenciando kanban.css)*/
+/* ========================================= */
+:root {
+    --color-primary: #7b4ac4; 
+    --color-primary-light: #bb86fc; 
+    --background-main: #292929;
+    --background-card: #3a3a3a; 
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --border-color: rgba(255, 255, 255, 0.1); 
+
+    /* Cores de Destaque Salvos */
+    --salvo-critical: #ff0050;    /* Vermelho para Crítico/Atrasado */
+    --salvo-review: #ffc107;      /* Amarelo para Revisão/Feedback */
+    --salvo-reference: #00bcd4;   /* Ciano para Artigos/Docs */
+    --salvo-shortcut: #28a745;    /* Verde para Atalhos/Filtros */
+    --salvo-snippet: #e91e63;     /* Magenta para Trechos/Notas */
+    --salvo-template: #7b4ac4;    /* Roxo para Templates */
+    --salvo-contact: #8bc34a;     /* Verde claro para Contatos */
+}
+
+/* ========================================= */
+/* ESTRUTURA E TÍTULOS GERAIS                */
+/* ========================================= */
+
+.salvos-main-title {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.salvos-subtitle {
+    color: var(--text-secondary);
+    font-size: 1em;
+    margin-bottom: 30px;
+}
+
+/* ========================================= */
+/* LAYOUT GRID DE CATEGORIAS                 */
+/* ========================================= */
+
+.salvos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.salvos-category {
+    background-color: #252525;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.category-title {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.category-description {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+/* ========================================= */
+/* ESTILO DOS CARDS SALVOS                   */
+/* ========================================= */
+
+.salvo-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-card);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-left: 5px solid var(--border-color); /* Borda padrão */
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.salvo-card:hover {
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.2);
+    transform: translateX(2px);
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.card-icon {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: var(--color-primary);
+    width: 30px; /* Garante alinhamento */
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.card-meta {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+/* --- Ações e Links --- */
+
+.card-actions {
+    flex-shrink: 0;
+}
+
+.action-link {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.action-link:hover {
+    background-color: #5c399b;
+}
+
+/* ========================================= */
+/* DESTAQUE DE CORES POR TIPO (Kanban Cores) */
+/* ========================================= */
+
+/* 1. Prioridades Fixadas */
+.card-critical { border-left-color: var(--salvo-critical); }
+.card-critical .card-icon { color: var(--salvo-critical); }
+
+.card-review { border-left-color: var(--salvo-review); }
+.card-review .card-icon { color: var(--salvo-review); }
+
+/* 2. Referências e Conteúdo */
+.card-reference { border-left-color: var(--salvo-reference); }
+.card-reference .card-icon { color: var(--salvo-reference); }
+
+.card-snippet { border-left-color: var(--salvo-snippet); }
+.card-snippet .card-icon { color: var(--salvo-snippet); }
+
+.card-contact { border-left-color: var(--salvo-contact); }
+.card-contact .card-icon { color: var(--salvo-contact); }
+
+/* 3. Atalhos de Gestão */
+.card-shortcut { border-left-color: var(--salvo-shortcut); }
+.card-shortcut .card-icon { color: var(--salvo-shortcut); }
+.card-shortcut .action-link { background-color: var(--salvo-shortcut); }
+.card-shortcut .action-link:hover { background-color: #1e873b; }
+
+.card-template { border-left-color: var(--salvo-template); }
+.card-template .card-icon { color: var(--salvo-template); }
+
+
+/* ========================================= */
+/* RESPONSIVIDADE                            */
+/* ========================================= */
+
+@media (max-width: 900px) {
+    .salvos-grid {
+        /* Permite que o grid se torne uma coluna simples em telas menores */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 550px) {
+    .salvo-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .card-content {
+        width: 100%;
+    }
+
+    .card-actions {
+        width: 100%;
+    }
+
+    .action-link {
+        width: 100%;
+        justify-content: center;
+    }
+}

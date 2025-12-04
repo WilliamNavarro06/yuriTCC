@@ -1,0 +1,260 @@
+/* ================================================================================
+   1. Estilos Base, Layout e Scroll Global
+   ================================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex; 
+    height: 100vh;
+    width: 100vw;
+    background-color: #121212; /* Fundo Escuro */
+    color: #ffffff;
+    overflow: hidden; 
+}
+
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px 40px;
+    overflow-y: auto; 
+    max-width: calc(100% - 250px);
+    padding-top: 80px; /* Espaço para o Header Fixo */
+    height: 100vh;
+}
+
+.explorar {
+    font-size: 1.5em; 
+    font-weight: 700;
+    margin-bottom: 25px;
+    padding-left: 5px;
+    color: #bb86fc; /* Roxo de Destaque */
+}
+
+/* Scrollbar Customizada */
+.main-content::-webkit-scrollbar { width: 8px; }
+.main-content::-webkit-scrollbar-thumb { background-color: #7b4ac4; border-radius: 4px; }
+.main-content::-webkit-scrollbar-track { background: #202020; }
+
+
+/* ================================================================================
+   2. Estilos dos Filtros e Postagens
+   ================================================================================ */
+
+/* 🆕 NOVO: Filtros do Feed */
+.feed-filtros {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+
+.filtro-btn {
+    background: none;
+    border: none;
+    color: #aaaaaa;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.filtro-btn i { margin-right: 8px; }
+
+.filtro-btn:hover {
+    color: #ffffff;
+    background-color: #292929;
+}
+
+.filtro-btn.active-filtro {
+    color: #bb86fc;
+    border-bottom: 2px solid #bb86fc;
+    margin-bottom: -12px; 
+}
+
+
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px; 
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+
+.postagem {
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+}
+
+.postagem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.cabecalho-post {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Perfil e Status */
+.perfil-status-container {
+    position: relative;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.imagem-perfil {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #bb86fc; 
+}
+
+/*Indicador de Status */
+.status-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #202020; 
+}
+
+.status-indicator.online { background-color: #4caf50; } 
+.status-indicator.offline { background-color: #f44336; } 
+
+.nome-usuario {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 1.1em;
+}
+
+/*Indicador de Verificação/Equipe */
+.nome-usuario.verificado::after {
+    content: "\f00c"; 
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #61dafb;
+    font-size: 0.8em;
+    margin-left: 5px;
+    vertical-align: top;
+}
+
+.arroba {
+    font-size: 0.8em;
+    color: #aaaaaa;
+}
+
+.conteudo-post p {
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.conteudo-imagem-post {
+    background-color: #121212;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #333;
+    overflow: hidden; 
+}
+
+.imagem-post {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    color: #7b4ac4;
+    font-weight: 500;
+    font-size: 0.9em;
+    border: 1px dashed #7b4ac4;
+    border-radius: 6px;
+}
+
+/* -------------------- Barra de Interação (Reações) -------------------- */
+.interacao-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #333;
+    font-size: 0.85em;
+    color: #aaaaaa;
+}
+
+.icones-interacao {
+    display: flex;
+    gap: 15px;
+}
+
+.interacao-item {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.interacao-item:hover {
+    color: #bb86fc; 
+}
+
+.interacao-item i {
+    margin-right: 5px;
+}
+
+.data-post {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.faq {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq-item {
+    background: #121212;
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
+.faq-pergunta {
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.faq-resposta {
+    margin-top: 8px;
+    color: #bbb;
+    line-height: 1.5;
+}

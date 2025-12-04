@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Equipe | Nexus</title>
+    <link rel="icon" href="../images/logo_botinho_pagina.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/menu.css">  
+
+    <link rel="stylesheet" href="../../css/minha-equipe.css"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-layout"> 
+        
+        <div class="sidebar-placeholder"></div>
+
+        <div class="main-content">
+            
+            <div class="header-placeholder"></div>
+            
+            <div class="pagina-titulo">Minha Equipe (Gestão de Acesso)</div>
+            
+            <div class="equipe-container">
+                
+                <div class="equipe-controles">
+                    <h3 class="total-membros">Membros Ativos (4)</h3>
+                    <button class="adicionar-membro-btn"><i class="fas fa-user-plus"></i> Adicionar Membro</button>
+                </div>
+                
+                <div class="membros-lista">
+                    
+                    <div class="membro-card">
+                        <div class="membro-info">
+                            <div class="perfil-status-container">
+                                <div class="perfil-pic-grande" style="background-color: #bb86fc;"></div>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <div class="membro-detalhes">
+                                <span class="membro-nome">Aisha Silva</span>
+                                <span class="membro-arroba">@aishadev</span>
+                                <span class="membro-tag tag-admin"><i class="fas fa-crown"></i> Administradora</span>
+                            </div>
+                        </div>
+                        <div class="membro-acoes">
+                            <span class="membro-cargo">Desenvolvedora Sênior</span>
+                            <button class="btn-acao-secundaria"><i class="fas fa-comments"></i> Chat</button>
+                            <button class="btn-acao-principal"><i class="fas fa-cog"></i> Gerenciar</button>
+                        </div>
+                    </div>
+
+                    <div class="membro-card">
+                        <div class="membro-info">
+                            <div class="perfil-status-container">
+                                <div class="perfil-pic-grande" style="background-color: #61dafb;"></div>
+                                <span class="status-indicator offline"></span>
+                            </div>
+                            <div class="membro-detalhes">
+                                <span class="membro-nome">Elisa Tech</span>
+                                <span class="membro-arroba">@elisa.tech</span>
+                                <span class="membro-tag tag-dev"><i class="fas fa-code"></i> Desenvolvedor</span>
+                            </div>
+                        </div>
+                        <div class="membro-acoes">
+                            <span class="membro-cargo">UX/UI Designer</span>
+                            <button class="btn-acao-secundaria"><i class="fas fa-comments"></i> Chat</button>
+                            <button class="btn-acao-principal"><i class="fas fa-cog"></i> Gerenciar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="membro-card meu-perfil">
+                        <div class="membro-info">
+                            <div class="perfil-status-container">
+                                <div class="perfil-pic-grande" style="background-color: #ff9800;"></div>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <div class="membro-detalhes">
+                                <span class="membro-nome">Você (Líder)</span>
+                                <span class="membro-arroba">@eu.lider</span>
+                                <span class="membro-tag tag-leader"><i class="fas fa-star"></i> Liderança</span>
+                            </div>
+                        </div>
+                        <div class="membro-acoes">
+                            <span class="membro-cargo">Gerente de Projetos</span>
+                            <button class="btn-acao-principal disabled" disabled><i class="fas fa-user"></i> Meu Perfil</button>
+                        </div>
+                    </div>
+
+                    <div class="membro-card bloqueado">
+                        <div class="membro-info">
+                            <div class="perfil-status-container">
+                                <div class="perfil-pic-grande" style="background-color: #f44336;"></div>
+                            </div>
+                            <div class="membro-detalhes">
+                                <span class="membro-nome">João Convidado</span>
+                                <span class="membro-arroba">@joao.dev</span>
+                                <span class="membro-tag tag-pending"><i class="fas fa-clock"></i> Pendente</span>
+                            </div>
+                        </div>
+                        <div class="membro-acoes">
+                            <span class="membro-cargo">Acesso Revogado</span>
+                            <button class="btn-acao-principal"><i class="fas fa-times-circle"></i> Remover</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src="../../js/load-components.js"></script>
+</body>
+</html>

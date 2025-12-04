@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Rede | Nexus</title>
+    <link rel="icon" href="../images/logo_botinho_pagina.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="../../css/amigos.css"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-layout"> 
+        
+        <div class="main-content">
+            
+            <div class="feed-header">Minha Rede de Colaboração</div>
+
+            <div class="network-layout">
+                
+                <div class="network-sidebar">
+                    
+                    <div class="section-box my-connections-summary">
+                        <h4 class="section-title"><i class="fas fa-users"></i> Conexões Ativas</h4>
+                        <div class="connections-stats">
+                            <span class="stat-item">25 Total</span>
+                            <span class="stat-item online-stat">10 Online</span>
+                            <span class="stat-item project-stat">5 Projetos</span>
+                        </div>
+                        <button class="find-people-btn"><i class="fas fa-search"></i> Encontrar Pessoas</button>
+                    </div>
+
+                    <div class="section-box pending-requests-box">
+                        <h4 class="section-title"><i class="fas fa-user-plus"></i> Pedidos de Conexão (3)</h4>
+                        
+                        <div class="connection-request-item">
+                            <div class="request-user-info">
+                                <div class="profile-pic-small dev-pic-2"></div>
+                                <span>@samuel.dev</span>
+                            </div>
+                            <div class="request-actions">
+                                <button class="action-btn accept-btn" title="Aceitar"><i class="fas fa-check"></i></button>
+                                <button class="action-btn deny-btn" title="Recusar"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="connection-request-item">
+                            <div class="request-user-info">
+                                <div class="profile-pic-small dev-pic-3"></div>
+                                <span>@frontend.gabi</span>
+                            </div>
+                            <div class="request-actions">
+                                <button class="action-btn accept-btn" title="Aceitar"><i class="fas fa-check"></i></button>
+                                <button class="action-btn deny-btn" title="Recusar"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        <button class="view-all-requests-btn">Ver Todos os Pedidos</button>
+                    </div>
+
+                    <div class="section-box shared-projects-sidebar">
+                        <h4 class="section-title"><i class="fas fa-folder-open"></i> Projetos Compartilhados</h4>
+                        <ul class="project-list">
+                            <li><a href="#"><i class="fas fa-project-diagram"></i> Nexus Frontend</a></li>
+                            <li><a href="#"><i class="fas fa-project-diagram"></i> API Gateway V2</a></li>
+                            <li><a href="#"><i class="fas fa-project-diagram"></i> Mobile App Redesign</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+                <div class="network-main-content">
+                    
+                    <div class="network-tabs">
+                        <button class="network-tab-btn active-tab" data-tab="activity">Atividade da Rede</button>
+                        <button class="network-tab-btn" data-tab="connections">Minhas Conexões</button>
+                        <button class="network-tab-btn" data-tab="teams">Minhas Equipes</button>
+                    </div>
+
+                    <div class="network-tab-content active" id="activity-tab-content">
+                        <h3 class="tab-content-title"><i class="fas fa-chart-line"></i> Feed de Atividade Recente</h3>
+                        
+                        <div class="activity-feed">
+                            
+                            <div class="activity-item">
+                                <div class="profile-pic-small dev-pic-1"></div>
+                                <div class="activity-details">
+                                    <span class="activity-user">Aisha Silva</span> fez um <span class="activity-type commit">commit</span> em <a href="#" class="activity-link">Nexus Frontend</a>.
+                                    <span class="activity-time"><i class="fas fa-clock"></i> 5 min atrás</span>
+                                    <p class="activity-description">"feat: Adiciona componente de avatar dinâmico"</p>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="profile-pic-small dev-pic-4"></div>
+                                <div class="activity-details">
+                                    <span class="activity-user">Pedro Dev</span> abriu uma <span class="activity-type pr">Pull Request</span> em <a href="#" class="activity-link">API Gateway V2</a>.
+                                    <span class="activity-time"><i class="fas fa-clock"></i> 30 min atrás</span>
+                                    <p class="activity-description">"Implementa autenticação JWT para novas rotas"</p>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="profile-pic-small dev-pic-2"></div>
+                                <div class="activity-details">
+                                    <span class="activity-user">Samuel Junior</span> comentou em uma <span class="activity-type task">tarefa</span> no Kanban.
+                                    <span class="activity-time"><i class="fas fa-clock"></i> 1 hora atrás</span>
+                                    <p class="activity-description">"A interface da tela de login precisa de ajuste no espaçamento."</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="network-tab-content" id="connections-tab-content">
+                        <h3 class="tab-content-title"><i class="fas fa-users"></i> Minhas Conexões (25)</h3>
+                        <input type="text" placeholder="Filtrar conexões por nome, projeto ou tecnologia..." class="filter-connections-input">
+                        <div class="connection-grid">
+                            
+                            <div class="connection-card active-status">
+                                <div class="connection-avatar dev-pic-1"></div>
+                                <div class="connection-status online"></div>
+                                <div class="connection-info">
+                                    <div class="connection-name">Aisha Silva</div>
+                                    <div class="connection-handle">@aishadev</div>
+                                    <div class="connection-role">Front-end Lead</div>
+                                    <div class="connection-techs">
+                                        <span class="tech-tag react">React</span>
+                                        <span class="tech-tag js">JavaScript</span>
+                                        <span class="tech-tag css">CSS</span>
+                                    </div>
+                                </div>
+                                <div class="connection-actions-card">
+                                    <button class="chat-btn"><i class="fas fa-comment-dots"></i> Chat</button>
+                                    <button class="profile-btn"><i class="fas fa-user-circle"></i> Ver Perfil</button>
+                                </div>
+                            </div>
+
+                            <div class="connection-card">
+                                <div class="connection-avatar dev-pic-4"></div>
+                                <div class="connection-status offline"></div>
+                                <div class="connection-info">
+                                    <div class="connection-name">Pedro Dev</div>
+                                    <div class="connection-handle">@pedro.backend</div>
+                                    <div class="connection-role">Backend Engineer</div>
+                                    <div class="connection-techs">
+                                        <span class="tech-tag java">Java</span>
+                                        <span class="tech-tag spring">Spring Boot</span>
+                                        <span class="tech-tag docker">Docker</span>
+                                    </div>
+                                </div>
+                                <div class="connection-actions-card">
+                                    <button class="chat-btn"><i class="fas fa-comment-dots"></i> Chat</button>
+                                    <button class="profile-btn"><i class="fas fa-user-circle"></i> Ver Perfil</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="network-tab-content" id="teams-tab-content">
+                        <h3 class="tab-content-title"><i class="fas fa-users-cog"></i> Minhas Equipes (3)</h3>
+                        <div class="team-list">
+                            
+                            <div class="team-card">
+                                <div class="team-header-info">
+                                    <h4 class="team-name"><i class="fas fa-code"></i> Equipe Nexus Frontend</h4>
+                                    <span class="team-members-count">5 Membros</span>
+                                </div>
+                                <div class="team-members-avatars">
+                                    <div class="profile-pic-small dev-pic-1"></div>
+                                    <div class="profile-pic-small dev-pic-3"></div>
+                                    <div class="profile-pic-small dev-pic-5"></div>
+                                    <div class="profile-pic-small dev-pic-6"></div>
+                                    <div class="profile-pic-small dev-pic-7"></div>
+                                </div>
+                                <div class="team-description">Focados no desenvolvimento da interface do usuário e experiência.</div>
+                                <div class="team-actions">
+                                    <button class="team-action-btn"><i class="fas fa-comments"></i> Chat da Equipe</button>
+                                    <button class="team-action-btn"><i class="fas fa-columns"></i> Kanban</button>
+                                    <button class="team-action-btn"><i class="fas fa-folder"></i> Repositório</button>
+                                </div>
+                            </div>
+
+                            <div class="team-card">
+                                <div class="team-header-info">
+                                    <h4 class="team-name"><i class="fas fa-database"></i> Equipe Backend & DevOps</h4>
+                                    <span class="team-members-count">3 Membros</span>
+                                </div>
+                                <div class="team-members-avatars">
+                                    <div class="profile-pic-small dev-pic-4"></div>
+                                    <div class="profile-pic-small dev-pic-8"></div>
+                                    <div class="profile-pic-small dev-pic-2"></div>
+                                </div>
+                                <div class="team-description">Responsáveis pela lógica de negócio, APIs e infraestrutura.</div>
+                                <div class="team-actions">
+                                    <button class="team-action-btn"><i class="fas fa-comments"></i> Chat da Equipe</button>
+                                    <button class="team-action-btn"><i class="fas fa-columns"></i> Kanban</button>
+                                    <button class="team-action-btn"><i class="fas fa-folder"></i> Repositório</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/load-components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.network-tab-btn');
+            const contents = document.querySelectorAll('.network-tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active de todos os botões e conteúdos
+                    tabs.forEach(item => item.classList.remove('active-tab'));
+                    contents.forEach(item => item.classList.remove('active'));
+
+                    // Adiciona active ao botão clicado
+                    tab.classList.add('active-tab');
+
+                    // Mostra o conteúdo correspondente
+                    const targetTab = tab.getAttribute('data-tab');
+                    document.getElementById(targetTab + '-tab-content').classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

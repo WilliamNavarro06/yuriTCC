@@ -1,0 +1,262 @@
+/* ================================================================================
+   1. ESTILOS BASE E LAYOUT (Garantindo que a estrutura funcione)
+   ================================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex; 
+    height: 100vh;
+    width: 100vw;
+    background-color: #121212; /* Fundo Escuro Principal */
+    color: #ffffff;
+    overflow: hidden; 
+}
+
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px 40px;
+    overflow-y: auto; 
+    max-width: calc(100% - 250px); /* Garante espaço para a Sidebar */
+    padding-top: 80px; /* Garante espaço para o Header Fixo */
+    height: 100vh;
+}
+
+.pagina-titulo {
+    font-size: 1.5em; 
+    font-weight: 700;
+    margin-bottom: 25px;
+    padding-left: 5px;
+    color: #bb86fc; /* Roxo de Destaque */
+}
+
+/* Scrollbar Customizada */
+.main-content::-webkit-scrollbar { width: 8px; }
+.main-content::-webkit-scrollbar-thumb { background-color: #7b4ac4; border-radius: 4px; }
+.main-content::-webkit-scrollbar-track { background: #202020; }
+
+
+/* ================================================================================
+   2. CONTROLES E ESTRUTURA PRINCIPAL
+   ================================================================================ */
+
+.equipe-container {
+    padding: 0 20px;
+    max-width: 900px; /* Largura máxima para centralizar o conteúdo */
+    margin: 0 auto;
+}
+
+.equipe-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #292929;
+}
+
+.total-membros {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+.adicionar-membro-btn {
+    background-color: #4caf50; /* Verde para Ação Positiva */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.adicionar-membro-btn:hover { background-color: #388e3c; }
+
+/* -------------------- Lista de Membros -------------------- */
+
+.membros-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.membro-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #202020;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.2s;
+    border-left: 5px solid transparent;
+}
+.membro-card:hover {
+    background-color: #292929;
+    border-left-color: #7b4ac4; /* Roxo ao passar o mouse */
+}
+.membro-card.meu-perfil { 
+    border-left-color: #ff9800; /* Laranja para o próprio perfil */
+}
+.membro-card.bloqueado { 
+    opacity: 0.7; /* Suaviza visualmente */
+}
+
+/* ================================================================================
+   3. DETALHES DO MEMBRO (ESQUERDA)
+   ================================================================================ */
+
+.membro-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* -------------------- Foto de Perfil e Status -------------------- */
+.perfil-status-container {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.perfil-pic-grande {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 3px solid #202020; 
+}
+
+.status-indicator.online { background-color: #4caf50; } /* Verde */
+.status-indicator.offline { background-color: #f44336; } /* Vermelho */
+
+
+/* -------------------- Nomes e Tags -------------------- */
+.membro-detalhes {
+    display: flex;
+    flex-direction: column;
+}
+
+.membro-nome {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #ffffff;
+}
+.membro-arroba {
+    font-size: 0.85em;
+    color: #aaaaaa;
+}
+.membro-tag {
+    font-size: 0.7em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    align-self: flex-start; 
+    margin-top: 5px;
+}
+.membro-tag i { margin-right: 5px; }
+
+/* Cores das Tags (Mantenha consistência com o tema) */
+.tag-admin { background-color: #bb86fc; color: #121212; } 
+.tag-leader { background-color: #ff9800; color: #121212; } 
+.tag-dev { background-color: #61dafb; color: #121212; } 
+.tag-pending { background-color: #555; color: #ddd; } 
+
+
+/* ================================================================================
+   4. AÇÕES E CARGO (DIREITA)
+   ================================================================================ */
+
+.membro-acoes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9em;
+}
+
+.membro-cargo {
+    color: #aaaaaa;
+    font-weight: 500;
+    min-width: 120px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.btn-acao-principal, .btn-acao-secundaria {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-acao-principal {
+    background-color: #7b4ac4; 
+    color: white;
+}
+.btn-acao-principal:hover {
+    background-color: #bb86fc;
+}
+
+.btn-acao-secundaria {
+    background-color: #333;
+    color: #e0e0e0;
+}
+.btn-acao-secundaria:hover {
+    background-color: #444;
+}
+
+.btn-acao-principal.disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* ================================================================================
+   5. MEDIA QUERIES (Melhorando a visualização em telas menores, se necessário)
+   ================================================================================ */
+
+@media (max-width: 768px) {
+    .membro-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .membro-acoes {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .membro-cargo {
+        text-align: left;
+        margin-bottom: 5px;
+        min-width: auto;
+    }
+
+    .btn-acao-principal, .btn-acao-secundaria {
+        width: 100%; /* Botões preenchem a largura */
+    }
+}

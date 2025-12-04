@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex; 
+    height: 100vh;
+    width: 100vw;
+    background-color: #121212; /* Fundo Escuro */
+    color: #ffffff;
+    overflow: hidden; 
+}
+
+
+/* ========================================= */
+/* VARIÁVEIS DE COR E STATUS (KANBAN SYNC)   */
+/* ========================================= */
+:root {
+    --color-primary: #7b4ac4; 
+    --color-primary-light: #bb86fc; 
+    --background-main: #292929;
+    --background-card: #3a3a3a; 
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --border-color: rgba(255, 255, 255, 0.1); 
+
+    /* Cores de Status - Integram o Kanban (Integração 4) */
+    --status-review: #ffc107;      /* Amarelo */
+    --status-focus: #007bff;       /* Azul */
+    --status-completed: #28a745;   /* Verde */
+    --status-overdue: #ff0050;     /* Vermelho forte */
+    --status-class: #8bc34a;       /* Verde Claro para Aulas/Lembretes */
+}
+
+/* ========================================= */
+/* ESTRUTURA GERAL DA PÁGINA DE CALENDÁRIO   */
+/* ========================================= */
+
+.calendar-page-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.calendar-main-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+/* --- CONTROLES DO CALENDÁRIO --- */
+.month-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.calendar-month-view {
+    flex-grow: 3; 
+    min-width: 0;
+}
+
+.current-month {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-primary-light);
+}
+
+.add-event-btn {
+    /* Novo Botão para Adicionar Evento */
+    margin-left: auto;
+    padding: 10px 15px;
+}
+
+/* ========================================= */
+/* GRID DO CALENDÁRIO MENSAL                 */
+/* ========================================= */
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #202020;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.day-name {
+    padding: 10px 5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    background-color: #292929;
+}
+
+.day-cell {
+    min-height: 120px;
+    padding: 5px;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    position: relative;
+    background-color: var(--background-main);
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.day-cell:hover {
+    background-color: #303030;
+}
+
+.day-cell:nth-child(7n) { /* Remove a borda direita no final da semana */
+    border-right: none;
+}
+
+.outside-month {
+    background-color: #242424;
+    color: #555555;
+}
+
+.day-number {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.current-day {
+    border: 2px solid var(--color-primary-light);
+    border-radius: 4px;
+    background-color: #353535;
+}
+
+/* --- ESTILOS DOS EVENTOS DE MÊS --- */
+
+.monthly-event {
+    font-size: 0.75em;
+    padding: 3px 6px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    color: white;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Cores de Status (Integração 4) */
+.event-review {
+    background-color: var(--status-review);
+    color: #333;
+}
+.event-focus {
+    background-color: var(--status-focus);
+}
+.event-completed {
+    background-color: var(--status-completed);
+}
+.event-overdue {
+    background-color: var(--status-overdue);
+    font-weight: 700;
+    animation: pulse-alert 1s infinite alternate; /* Destaque visual */
+}
+.event-class {
+    background-color: var(--status-class);
+}
+
+@keyframes pulse-alert {
+    from { opacity: 1; }
+    to { opacity: 0.8; }
+}
+
+
+/* ========================================= */
+/* SIDEBAR DE EVENTOS MARCados (NOVO MENU)   */
+/* ========================================= */
+
+.event-sidebar {
+    flex-shrink: 0;
+    width: 350px; 
+    background-color: #252525;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    position: sticky; 
+    top: 80px; 
+    border: 1px solid var(--border-color);
+}
+
+.event-sidebar .sidebar-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.event-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border-color);
+    position: relative;
+    border-left: 5px solid transparent; /* Para o destaque de cor */
+    transition: background-color 0.2s;
+}
+
+.event-list-item:hover {
+    background-color: #303030;
+    padding-left: 5px;
+}
+
+.event-details {
+    flex-grow: 1;
+}
+
+.event-list-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+}
+
+.event-date-time {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.event-sync-icon {
+    font-size: 0.9em;
+    color: var(--color-primary-light);
+    margin-left: 10px;
+}
+
+/* Destaques da Lista de Eventos (Integração 4) */
+.event-list-item.event-focus { border-left-color: var(--status-focus); }
+.event-list-item.event-review { border-left-color: var(--status-review); }
+.event-list-item.event-overdue { border-left-color: var(--status-overdue); }
+.event-list-item.event-class { border-left-color: var(--status-class); }
+
+/* --- Legenda do Rodapé da Sidebar --- */
+.sidebar-footer-legend {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.8em;
+}
+
+.sidebar-footer-legend .legend-item {
+    padding: 2px 5px;
+    margin-left: 5px;
+    border-radius: 3px;
+    color: white;
+    font-size: 0.85em;
+}
+
+.sidebar-footer-legend .legend-review { background-color: var(--status-review); color: #333;}
+.sidebar-footer-legend .legend-focus { background-color: var(--status-focus); }
+
+
+/* ========================================= */
+/* RESPONSIVIDADE                            */
+/* ========================================= */
+
+@media (max-width: 1200px) {
+    .calendar-page-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .event-sidebar {
+        width: 100%;
+        position: static;
+        order: -1; /* Coloca a barra lateral antes do calendário na visualização mobile/tablet */
+    }
+    
+    .month-controls {
+        flex-wrap: wrap;
+    }
+    
+    .current-month {
+        order: -1;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .add-event-btn {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-grid {
+        /* Garante que o grid rola para telas muito pequenas */
+        grid-template-columns: repeat(7, 100px); 
+        overflow-x: scroll;
+    }
+}

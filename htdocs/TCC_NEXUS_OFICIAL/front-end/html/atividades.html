@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Atividades | Aluno</title>
+    <link rel="icon" href="../images/logo_botinho_pagina.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/menu.css"> 
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/kanban.css"> 
+    <link rel="stylesheet" href="../../css/atividade.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-layout"> 
+        <div class="main-content">
+            <div class="page-content-scrollable"> 
+                
+                <h2 class="atividades-main-title">
+                    <i class="fas fa-list-check"></i> Minhas Atividades e Ações Pendentes
+                </h2>
+                
+                <p class="atividades-subtitle">Veja o que você precisa executar e os seus próximos prazos acadêmicos.</p>
+
+                <div class="atividades-layout">
+
+                    <div class="atividades-principal">
+
+                        <section class="atividade-section">
+                            <h3 class="section-title"><i class="fas fa-columns"></i> Ações Pendentes (Kanban)</h3>
+                            
+                            <div class="atividade-card card-kanban-action">
+                                <div class="card-content">
+                                    <span class="card-icon"><i class="fas fa-code"></i></span>
+                                    <div class="card-text">
+                                        <p class="card-title">Desenvolver módulo de autenticação (Login/Cadastro)</p>
+                                        <span class="card-meta">Projeto TCC • **Prazo:** Vence em 3 dias</span>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="#" class="action-link link-view"><i class="fas fa-arrow-right"></i> Ir para o Card</a>
+                                </div>
+                            </div>
+
+                            <div class="atividade-card card-kanban-action">
+                                <div class="card-content">
+                                    <span class="card-icon"><i class="fas fa-question-circle"></i></span>
+                                    <div class="card-text">
+                                        <p class="card-title">Definir Escopo do Capítulo 4 (Metodologia)</p>
+                                        <span class="card-meta">Projeto TCC • **Status:** Aguardando resposta do Professor</span>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="#" class="action-link link-view"><i class="fas fa-arrow-right"></i> Ver Card</a>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section class="atividade-section">
+                            <h3 class="section-title"><i class="fas fa-reply-all"></i> Revisões e Feedbacks</h3>
+                            
+                            <div class="atividade-card card-review-pending">
+                                <div class="card-content">
+                                    <span class="card-icon"><i class="fas fa-user-edit"></i></span>
+                                    <div class="card-text">
+                                        <p class="card-title">Revisão de Pares: Artigo sobre IA (Colega)</p>
+                                        <span class="card-meta">Grupo de Estudo • **Prazo:** Vence amanhã!</span>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="#" class="action-link link-review"><i class="fas fa-pencil-alt"></i> Iniciar Revisão</a>
+                                </div>
+                            </div>
+
+                            <div class="atividade-card card-feedback-received">
+                                <div class="card-content">
+                                    <span class="card-icon"><i class="fas fa-comment-dots"></i></span>
+                                    <div class="card-text">
+                                        <p class="card-title">Novo Feedback Recebido no Capítulo 3</p>
+                                        <span class="card-meta">Orientador: Prof. Silva • 5 comentários novos</span>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="#" class="action-link link-respond"><i class="fas fa-reply"></i> Implementar</a>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+
+
+                    <div class="atividades-secundaria">
+                        
+                        <section class="sidebar-block">
+                            <h3 class="block-title"><i class="fas fa-calendar-alt"></i> Próximos Prazos</h3>
+                            
+                            <div class="deadline-item item-critical">
+                                <p class="deadline-title">Prova Final: Cálculo I</p>
+                                <span class="deadline-date"><i class="fas fa-clock"></i> 15 de Outubro</span>
+                            </div>
+
+                            <div class="deadline-item item-standard">
+                                <p class="deadline-title">Prazo de Submissão de Artigo</p>
+                                <span class="deadline-date"><i class="fas fa-clock"></i> 20 de Novembro</span>
+                            </div>
+
+                            <a href="../calendario.html" class="link-full-calendar"><i class="fas fa-calendar-days"></i> Ver Calendário Completo</a>
+                        </section>
+
+                        <section class="sidebar-block">
+                            <h3 class="block-title"><i class="fas fa-user-clock"></i> Interações e Agenda</h3>
+                            
+                            <div class="interaction-item item-mention">
+                                <p class="interaction-text">Você foi **mencionado** no Card "Brainstorming de Ferramentas".</p>
+                                <span class="interaction-link"><i class="fas fa-tag"></i> TCC Plataforma Social</span>
+                            </div>
+
+                            <div class="interaction-item item-meeting">
+                                <p class="interaction-text">Reunião com Prof. Silva confirmada.</p>
+                                <span class="interaction-link"><i class="fas fa-calendar-check"></i> Hoje às 14:00 (em 15 min)</span>
+                            </div>
+
+                            <div class="interaction-item item-message">
+                                <p class="interaction-text">Nova **Mensagem Direta** de @joao.dev.</p>
+                                <span class="interaction-link"><i class="fas fa-envelope"></i> Clique para responder</span>
+                            </div>
+                        </section>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/load-components.js"></script>
+</body>
+</html>

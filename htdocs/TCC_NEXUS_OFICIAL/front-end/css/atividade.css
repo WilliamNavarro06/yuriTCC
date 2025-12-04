@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: flex; 
+    height: 100vh;
+    width: 100vw;
+    background-color: #121212; /* Fundo Escuro */
+    color: #ffffff;
+    overflow: hidden; 
+}
+
+/* ========================================= */
+/* VARIÁVEIS DE COR (Herdadas do Kanban)     */
+/* ========================================= */
+:root {
+    --color-primary: #7b4ac4; 
+    --color-primary-light: #bb86fc; 
+    --background-main: #292929;
+    --background-card: #3a3a3a; 
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --border-color: rgba(255, 255, 255, 0.1); 
+
+    /* Cores de Status de Atividades */
+    --status-action: #007bff;   /* Azul para Ações Kanban (Em Execução) */
+    --status-review: #ffc107;   /* Amarelo para Revisão/Feedback */
+    --status-critical: #ff0050; /* Vermelho para Prazos/Urgência */
+    --status-meeting: #8bc34a;  /* Verde claro para Reuniões/Agenda */
+}
+
+/* ========================================= */
+/* LAYOUT GERAL E TÍTULOS                    */
+/* ========================================= */
+
+.atividades-main-title {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.atividades-subtitle {
+    color: var(--text-secondary);
+    font-size: 1em;
+    margin-bottom: 30px;
+}
+
+.atividades-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.atividades-principal {
+    flex-grow: 3;
+    min-width: 0;
+}
+
+.atividades-secundaria {
+    flex-shrink: 0;
+    width: 350px; 
+    position: sticky;
+    top: 80px; 
+}
+
+/* --- SEÇÕES E BLOCOS --- */
+
+.atividade-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #252525;
+    border-radius: 8px;
+}
+
+.section-title {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.sidebar-block {
+    background-color: #252525;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.block-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+/* ========================================= */
+/* ESTILO DOS CARDS DE ATIVIDADE             */
+/* ========================================= */
+
+.atividade-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-card);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-left: 5px solid var(--status-action); /* Cor Padrão: Ação */
+    transition: box-shadow 0.2s;
+}
+
+.atividade-card:hover {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.card-icon {
+    font-size: 1.4em;
+    margin-right: 15px;
+    color: var(--status-action);
+}
+
+.card-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.card-meta {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+/* --- Cores de Destaque dos Cards --- */
+.card-review-pending { border-left-color: var(--status-critical); }
+.card-review-pending .card-icon { color: var(--status-critical); }
+
+.card-feedback-received { border-left-color: var(--status-review); }
+.card-feedback-received .card-icon { color: var(--status-review); }
+
+/* --- Ações e Links --- */
+
+.action-link {
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.link-view { background-color: var(--status-action); color: white; }
+.link-view:hover { background-color: #0069d9; }
+
+.link-review { background-color: var(--status-critical); color: white; }
+.link-review:hover { background-color: #d90044; }
+
+.link-respond { background-color: var(--status-review); color: #333; font-weight: 600; }
+.link-respond:hover { background-color: #e0a800; }
+
+
+/* ========================================= */
+/* SIDEBAR (PRAZOS E INTERAÇÕES)             */
+/* ========================================= */
+
+/* --- Prazos --- */
+
+.deadline-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.deadline-title {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.deadline-date {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.deadline-item.item-critical {
+    border-left: 4px solid var(--status-critical);
+    padding-left: 5px;
+}
+
+.deadline-item.item-standard {
+    border-left: 4px solid var(--status-action);
+    padding-left: 5px;
+}
+
+.link-full-calendar {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 8px;
+    border: 1px solid var(--color-primary-light);
+    border-radius: 6px;
+    color: var(--color-primary-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.link-full-calendar:hover {
+    background-color: rgba(187, 134, 252, 0.15);
+}
+
+/* --- Interações --- */
+
+.interaction-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.interaction-text {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.interaction-link {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.interaction-item.item-mention .interaction-text b { color: var(--color-primary-light); }
+.interaction-item.item-meeting .interaction-text { color: var(--status-meeting); }
+
+
+/* ========================================= */
+/* RESPONSIVIDADE                            */
+/* ========================================= */
+
+@media (max-width: 1050px) {
+    .atividades-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .atividades-secundaria {
+        width: 100%;
+        position: static;
+        order: -1; 
+    }
+    
+    .atividade-card {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .card-actions {
+        width: 100%;
+    }
+    
+    .action-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .atividade-section {
+        padding: 15px;
+    }
+}

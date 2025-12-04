@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itens Salvos | Nexus</title>
+    <link rel="icon" href="../images/logo_botinho_pagina.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/menu.css"> 
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/kanban.css"> 
+    <link rel="stylesheet" href="../../css/salvos.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-layout"> 
+        <div class="main-content">
+            <div class="page-content-scrollable"> 
+                
+                <h2 class="salvos-main-title">
+                    <i class="fas fa-bookmark"></i> Meus Itens Salvos
+                </h2>
+                
+                <p class="salvos-subtitle">Seu hub pessoal de referências, prazos críticos e atalhos.</p>
+
+                <div class="salvos-grid">
+
+                    <section class="salvos-category">
+                        <h3 class="category-title"><i class="fas fa-bell"></i> Prioridades Fixadas</h3>
+                        <p class="category-description">Itens do Kanban que exigem atenção imediata.</p>
+
+                        <div class="salvo-card card-critical" data-source="Kanban">
+                            <div class="card-content">
+                                <span class="card-icon"><i class="fas fa-calendar-times"></i></span>
+                                <div class="card-text">
+                                    <p class="card-title">Definir escopo do Capítulo 4 (Metodologia)</p>
+                                    <span class="card-meta">**Venceu:** 03/Out — Atraso</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="../kanban/tcc.html" class="action-link"><i class="fas fa-arrow-right"></i> Ver Card</a>
+                            </div>
+                        </div>
+
+                        <div class="salvo-card card-review" data-source="Revisão">
+                            <div class="card-content">
+                                <span class="card-icon"><i class="fas fa-comment-dots"></i></span>
+                                <div class="card-text">
+                                    <p class="card-title">Comentário Pendente do Orientador</p>
+                                    <span class="card-meta">Capítulo 3 (Revisão da Literatura)</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="../docs/cap3.html" class="action-link"><i class="fas fa-reply"></i> Responder</a>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="salvos-category">
+                        <h3 class="category-title"><i class="fas fa-file-alt"></i> Artigos e Referências</h3>
+                        <p class="category-description">Documentos importantes e trechos de pesquisa.</p>
+
+                        <div class="salvo-card card-reference" data-source="Biblioteca">
+                            <div class="card-content">
+                                <span class="card-icon"><i class="fas fa-file-pdf"></i></span>
+                                <div class="card-text">
+                                    <p class="card-title">Artigo: Arquitetura de Microserviços em Node.js</p>
+                                    <span class="card-meta">Salvo em 25/Set — Cap. 5</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#" class="action-link"><i class="fas fa-eye"></i> Ler</a>
+                            </div>
+                        </div>
+
+                        <div class="salvo-card card-snippet" data-source="Nota Rápida">
+                            <div class="card-content">
+                                <span class="card-icon"><i class="fas fa-quote-left"></i></span>
+                                <div class="card-text">
+                                    <p class="card-title">Citação: "A adoção da IA requer governança..."</p>
+                                    <span class="card-meta">Trecho salvo para a Introdução</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#" class="action-link"><i class="fas fa-copy"></i> Copiar</a>
+                            </div>
+                        </div>
+
+                        <div class="salvo-card card-contact" data-source="Pessoas">
+                            <div class="card-content">
+                                <span class="card-icon"><i class="fas fa-user-circle"></i></span>
+                                <div class="card-text">
+                                    <p class="card-title">@prof_orientador_silva</p>
+                                    <span class="card-meta">Contato frequente: Orientação TCC</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#" class="action-link"><i class="fas fa-envelope"></i> Mensagem</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="salvos-category">
+                        <h3 class="category-title"><i class="fas fa-bolt"></i> Atalhos e Filtros Rápidos</h3>
+                        <p class="category-description">Configurações e links de acesso instantâneo.</p>
+
+                        <div class="salvo-card card-shortcut" data-source="Kanban">
+                            <div class="card-content">
+                                <span class="card-icon"><i class="fas fa-filter"></i></span>
+                                <div class="card-text">
+                                    <p class="card-title">Filtro: Tarefas de Codificação de @joao.dev</p>
+                                    <span class="card-meta">Aplica o filtro no Kanban do TCC</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="../kanban/tcc.html?filter=joao+code" class="action-link"><i class="fas fa-play"></i> Aplicar</a>
+                            </div>
+                        </div>
+
+                        <div class="salvo-card card-template" data-source="Documentos">
+                            <div class="card-content">
+                                <span class="card-icon"><i class="fas fa-clone"></i></span>
+                                <div class="card-text">
+                                    <p class="card-title">Template: Ata de Reunião Padrão</p>
+                                    <span class="card-meta">Cria um novo documento a partir do modelo</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#" class="action-link"><i class="fas fa-plus-circle"></i> Novo</a>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/load-components.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+/* ================================================================================
+   1. Estilos Base, Layout e Scroll Global (Consistente com feed.css)
+   ================================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    /* Mesmo fundo escuro e layout centralizado do feed */
+    background-color: #121212; 
+    color: #ffffff;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden; 
+}
+
+/* ================================================================================
+   2. Estilos do Card de Login
+   ================================================================================ */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.login-card {
+    /* Estilo de "postagem" ou card do feed */
+    background-color: #202020;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Sombra mais forte para destaque */
+    width: 100%;
+    max-width: 400px; /* Largura ideal para formulários */
+    text-align: center;
+}
+
+.login-heading {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #bb86fc; /* Cor de destaque (Roxo) */
+}
+
+.login-subheading {
+    color: #aaaaaa;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+}
+
+/* Estilo para mensagens de status (sucesso/erro) */
+.status-message {
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 38px;
+    color: #4caf50; /* Padrão de sucesso */
+}
+
+/* ================================================================================
+   3. Estilos dos Campos de Input
+   ================================================================================ */
+
+.input-field-group {
+    display: flex;
+    align-items: center;
+    background-color: #121212; /* Fundo mais escuro que o card para contraste */
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+}
+
+.input-icon {
+    color: #bb86fc; /* Ícone na cor de destaque */
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.input-field {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    outline: none;
+    padding: 5px 0;
+    font-size: 1em;
+}
+
+.input-field::placeholder {
+    color: #777;
+}
+
+/* ================================================================================
+   4. Estilos dos Botões
+   ================================================================================ */
+
+.login-buttons {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.primary-btn, .secondary-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    text-decoration: none; /* Para o link de cadastro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Botão de Login (Primary) */
+.primary-btn {
+    background-color: #bb86fc; /* Cor de Destaque */
+    color: #121212;
+}
+
+.primary-btn:hover {
+    background-color: #9c4dff; /* Tom mais escuro ao passar o mouse */
+    transform: translateY(-1px);
+}
+
+/* Botão de Cadastro (Secondary) */
+.secondary-btn {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+.secondary-btn:hover {
+    background-color: #444;
+}
+
+/* Link de Esqueci Senha */
+.forgot-password-link {
+    display: block;
+    margin-top: 15px;
+    color: #bb86fc;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.forgot-password-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+#logoOFC {
+    height: 100px;
+}
+
+/* Ajuste para botões únicos, fazendo o botão primário ocupar toda a largura */
+.login-buttons.single-button .primary-btn {
+    width: 100%;
+}
+.login-buttons.single-button {
+    justify-content: center;
+}
